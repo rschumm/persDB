@@ -1,0 +1,6 @@
+10:10:17,597 INFO  [Version] WELD-000900 1.1.11 (Final)
+10:10:39,697 INFO  [Version] WELD-000900 1.1.11 (Final)
+10:10:40,166 INFO  [PersService] testPersService
+10:10:40,201 INFO  [PersService] getAllPerson
+10:10:40,205 INFO  [PersService] getAllItems
+10:10:40,209 INFO  [PersService] getAllAdresse

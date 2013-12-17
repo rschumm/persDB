@@ -16,14 +16,6 @@ public class Item implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Item() {
-        // TODO Auto-generated constructor stub
-    }
-
-    public Item(String nr) {
-        this.nr = nr;
-    }
-
     @Id
     @Column(name = "ITEM_PK")
     @GeneratedValue

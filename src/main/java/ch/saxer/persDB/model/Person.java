@@ -1,6 +1,7 @@
 package ch.saxer.persDB.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -16,6 +17,19 @@ import javax.persistence.ManyToOne;
 public class Person implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    public Person() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public Person(String name) {
+        this.name = name;
+        this.vorname = "";
+        this.email = "";
+        this.adresse = new Adresse();
+        this.items = new HashSet<Item>();
+
+    }
 
     @Id
     @Column(name = "PERS_PK")

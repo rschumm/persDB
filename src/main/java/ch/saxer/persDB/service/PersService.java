@@ -2,55 +2,47 @@ package ch.saxer.persDB.service;
 
 import java.util.List;
 
+import javax.ejb.DependsOn;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.inject.Named;
 
 import ch.saxer.persDB.model.Adresse;
 import ch.saxer.persDB.model.Item;
 import ch.saxer.persDB.model.Person;
 
-
+@DependsOn("PersJPA")
+@Named
 @Stateless
-public class PersService {
+public class PersService implements PersInterface {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(PersService.class);
+    @EJB
+    PersJPA persJPA;
 
-    @PersistenceContext
-    private EntityManager em;
+    public RefeactorPerson refeactorPerson;
 
-    public List<Person> getAllPerson() {
-        LOGGER.info("getAllPerson");
-        return em.createQuery("SELECT x from Person x", Person.class).getResultList();
+    public PersService() {
 
+        refeactorPerson = new RefeactorPerson();
     }
 
-    public List<Item> getAllItems() {
-        LOGGER.info("getAllItems");
-        return em.createQuery("SELECT x from Item x", Item.class).getResultList();
-
+    @Override
+    public List<Person> getPersonen() {
+        List<Person> personen = persJPA.getAllPerson();
+        for (Person p : personen) {
+            p = refeactorPerson.refeacotorPerson(p);
+        }
+        return personen;
     }
 
-    public List<Adresse> getAllAdresse() {
-        LOGGER.info("getAllAdresse");
-
-        return em.createQuery("SELECT x from Adresse x", Adresse.class).getResultList();
-
+    @Override
+    public List<Item> getItems() {
+        return persJPA.getAllItems();
     }
 
-    public Object testPersService() {
-        LOGGER.info("testPersService");
-        return "found";
+    @Override
+    public List<Adresse> getAdressen() {
+        return persJPA.getAllAdresse();
     }
 
-    public void addItem(Item item) {
-        em.persist(item);
-    }
-
-    public void deleteItem(Item item) {
-        em.remove(item);
-    }
 }
