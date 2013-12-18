@@ -2,21 +2,19 @@ package ch.saxer.persDB.service;
 
 import java.util.List;
 
-import javax.ejb.DependsOn;
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.inject.Named;
+import javax.inject.Inject;
 
 import ch.saxer.persDB.model.Adresse;
 import ch.saxer.persDB.model.Item;
 import ch.saxer.persDB.model.Person;
 
-@DependsOn("PersJPA")
-@Named
-@Stateless
+// @DependsOn("PersJPA")
+// @Named
+// @Stateless
 public class PersService implements PersInterface {
 
-    @EJB
+    // @EJB
+    @Inject
     PersJPA persJPA;
 
     public RefeactorPerson refeactorPerson;

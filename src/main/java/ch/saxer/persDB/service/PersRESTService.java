@@ -2,8 +2,6 @@ package ch.saxer.persDB.service;
 
 import java.util.List;
 
-import javax.ejb.DependsOn;
-import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -17,15 +15,16 @@ import ch.saxer.persDB.model.Adresse;
 import ch.saxer.persDB.model.Item;
 import ch.saxer.persDB.model.Person;
 
-@DependsOn("PersService")
-@Path("/persDB")
+// @DependsOn("PersService")
+@Path("/r")
 @RequestScoped
 public class PersRESTService implements PersInterface {
 
     @Inject
     private Logger log;
 
-    @EJB
+    // @EJB
+    @Inject
     private PersService persService;
 
     @GET
