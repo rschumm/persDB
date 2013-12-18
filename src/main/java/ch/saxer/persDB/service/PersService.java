@@ -8,12 +8,8 @@ import ch.saxer.persDB.model.Adresse;
 import ch.saxer.persDB.model.Item;
 import ch.saxer.persDB.model.Person;
 
-// @DependsOn("PersJPA")
-// @Named
-// @Stateless
 public class PersService implements PersInterface {
 
-    // @EJB
     @Inject
     PersJPA persJPA;
 

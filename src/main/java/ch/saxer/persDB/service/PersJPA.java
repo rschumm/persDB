@@ -24,6 +24,12 @@ public class PersJPA {
 
     public List<Person> getAllPerson() {
         log.info("getAllPerson");
+        List<Person> personen = em.createQuery("SELECT x from Person x", Person.class).getResultList();
+        for (Person person : personen) {
+            System.out.println(person.getId() + " " + person.getName() + " " + person.getVorname() + " "
+                    + person.getAdresse().getId() + " " + person.getAdresse().getOrt() + " "
+                    + person.getAdresse().getPlz());
+        }
         return em.createQuery("SELECT x from Person x", Person.class).getResultList();
 
     }

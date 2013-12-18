@@ -13,5 +13,4 @@ public class BusinessLogic {
         RefeactorPerson refeactorPerson = new RefeactorPerson();
         Assert.assertEquals("SAXER", refeactorPerson.refeacotorPerson(new Person("saxer")).getName());
     }
-
 }

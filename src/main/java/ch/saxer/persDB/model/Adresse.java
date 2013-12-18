@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Adresse implements Serializable {
@@ -19,6 +20,7 @@ public class Adresse implements Serializable {
     @GeneratedValue
     int id;
 
+    @Transient
     @OneToMany(mappedBy = "adresse")
     private List<Person> personen;
 

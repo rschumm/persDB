@@ -15,7 +15,6 @@ import ch.saxer.persDB.model.Adresse;
 import ch.saxer.persDB.model.Item;
 import ch.saxer.persDB.model.Person;
 
-// @DependsOn("PersService")
 @Path("/r")
 @RequestScoped
 public class PersRESTService implements PersInterface {
@@ -23,7 +22,6 @@ public class PersRESTService implements PersInterface {
     @Inject
     private Logger log;
 
-    // @EJB
     @Inject
     private PersService persService;
 
@@ -33,6 +31,9 @@ public class PersRESTService implements PersInterface {
     @Override
     public List<Person> getPersonen() {
         log.info("liste Personen");
+        for (Person person : persService.getPersonen()) {
+            System.out.println(person.getId() + " " + person.getName() + " " + person.getVorname());
+        }
         return persService.getPersonen();
     }
 

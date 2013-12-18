@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Item implements Serializable {
@@ -21,6 +22,7 @@ public class Item implements Serializable {
     @GeneratedValue
     int id;
 
+    @Transient
     @ManyToMany
     @JoinTable(name = "PERSON_ITEM", joinColumns = {@JoinColumn(name = "ITEM_FK", referencedColumnName = "ITEM_PK")}, inverseJoinColumns = {@JoinColumn(name = "PERS_FK", referencedColumnName = "PERS_PK")})
     private Set<Person> personen;
