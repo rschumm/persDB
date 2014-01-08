@@ -22,7 +22,7 @@ public class Adresse implements Serializable {
 
     @Transient
     @OneToMany(mappedBy = "adresse")
-    private List<Person> personen;
+    List<Person> personen;
 
     private String plz;
 

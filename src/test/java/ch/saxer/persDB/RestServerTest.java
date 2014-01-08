@@ -17,7 +17,7 @@ import com.eclipsesource.restfuse.annotation.HttpTest;
 public class RestServerTest {
 
     @Rule
-    private Destination destination = new Destination(this, "http://localhost:8080");
+    public Destination destination = new Destination(this, "http://localhost:8080");
 
     @Context
     private Response response; // will be injected after every request

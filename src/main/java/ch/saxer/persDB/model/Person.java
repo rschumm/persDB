@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 
 @Entity
 public class Person implements Serializable {
@@ -34,7 +33,6 @@ public class Person implements Serializable {
     @JoinColumn(name = "ADR_FK", nullable = false)
     private Adresse adresse;
 
-    @Transient
     @ManyToMany
     @JoinTable(name = "PERSON_ITEM", joinColumns = {@JoinColumn(name = "PERS_FK", referencedColumnName = "PERS_PK")}, inverseJoinColumns = {@JoinColumn(name = "ITEM_FK", referencedColumnName = "ITEM_PK")})
     private Set<Item> items;
