@@ -10,10 +10,10 @@ import ch.saxer.persDB.model.Person;
 
 public class PersService implements PersInterface {
 
-    @Inject
-    PersJPA persJPA;
+    private RefeactorPerson refeactorPerson;
 
-    public RefeactorPerson refeactorPerson;
+    @Inject
+    private PersJPA persJPA;
 
     public PersService() {
 
@@ -37,6 +37,19 @@ public class PersService implements PersInterface {
     @Override
     public List<Adresse> getAdressen() {
         return persJPA.getAllAdresse();
+    }
+
+    @Override
+    public Person getPerson(String name, String vorname) {
+        return persJPA.getPerson(name, vorname);
+    }
+
+    public PersJPA getPersJPA() {
+        return persJPA;
+    }
+
+    public void setPersJPA(PersJPA persJPA) {
+        this.persJPA = persJPA;
     }
 
 }

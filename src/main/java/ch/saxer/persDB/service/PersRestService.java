@@ -15,9 +15,11 @@ import ch.saxer.persDB.model.Adresse;
 import ch.saxer.persDB.model.Item;
 import ch.saxer.persDB.model.Person;
 
+
+
 @Path("/r")
 @RequestScoped
-public class PersRESTService implements PersInterface {
+public class PersRestService implements PersInterface {
 
     @Inject
     private Logger log;
@@ -54,5 +56,22 @@ public class PersRESTService implements PersInterface {
         log.info("liste Adressen");
         return persService.getAdressen();
     }
+
+    @Override
+    public Person getPerson(String name, String vorname) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    // @GET
+    // @Path("/person/{vorname}/{name}")
+    // @Produces(MediaType.APPLICATION_JSON)
+    // @Override
+    // public Person getPerson(@PathParam("name")
+    // String name, @PathParam("vorname")
+    // String vorname) {
+    // log.info("Person");
+    // return persService.getPerson(name, vorname);
+    // }
 
 }

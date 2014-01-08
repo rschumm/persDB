@@ -19,22 +19,16 @@ public class Person implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Person(String name) {
-        this.name = name;
-        this.vorname = "";
-        this.email = "";
-        this.adresse = new Adresse();
-        this.items = new HashSet<Item>();
+    private String name;
 
-    }
+    private String vorname;
 
-    public Person() {
-    }
+    private String email;
 
     @Id
     @Column(name = "PERS_PK")
     @GeneratedValue
-    int id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "ADR_FK", nullable = false)
@@ -45,11 +39,16 @@ public class Person implements Serializable {
     @JoinTable(name = "PERSON_ITEM", joinColumns = {@JoinColumn(name = "PERS_FK", referencedColumnName = "PERS_PK")}, inverseJoinColumns = {@JoinColumn(name = "ITEM_FK", referencedColumnName = "ITEM_PK")})
     private Set<Item> items;
 
-    private String name;
+    public Person(String name) {
+        this.name = name;
+        this.vorname = "";
+        this.email = "";
+        this.adresse = new Adresse();
+        this.items = new HashSet<Item>();
+    }
 
-    private String vorname;
-
-    private String email;
+    public Person() {
+    }
 
     public String getName() {
         return name;

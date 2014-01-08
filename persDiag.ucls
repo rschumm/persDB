@@ -3,16 +3,16 @@
   associations="true" dependencies="true" nesting-relationships="true">  
   <interface id="1" language="java" name="ch.saxer.persDB.service.PersInterface" project="persDB" 
     file="/persDB/src/main/java/ch/saxer/persDB/service/PersInterface.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="171" x="632" y="423"/>    
+    <position height="117" width="171" x="488" y="405"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="2" language="java" name="ch.saxer.persDB.service.PersRESTService" project="persDB" 
-    file="/persDB/src/main/java/ch/saxer/persDB/service/PersRESTService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="365" x="438" y="37"/>    
+  <class id="2" language="java" name="ch.saxer.persDB.service.PersRestService" project="persDB" 
+    file="/persDB/src/main/java/ch/saxer/persDB/service/PersRestService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="171" x="488" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="ch.saxer.persDB.service.PersJPA" project="persDB" 
     file="/persDB/src/main/java/ch/saxer/persDB/service/PersJPA.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="320" x="42" y="423"/>    
+    <position height="225" width="177" x="41" y="405"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="ch.saxer.persDB.service.PersService" project="persDB" 
     file="/persDB/src/main/java/ch/saxer/persDB/service/PersService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="339" x="272" y="230"/>    
+    <position height="135" width="171" x="296" y="230"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="ch.saxer.persDB.service.RefeactorPerson" project="persDB" 
     file="/persDB/src/main/java/ch/saxer/persDB/service/RefeactorPerson.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="190" x="402" y="423"/>    
+    <position height="99" width="190" x="258" y="405"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -52,31 +52,31 @@
   </realization>  
   <association id="7">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="8" name="persJpa"/>      
+      <attribute id="8" name="persJPA"/>      
       <multiplicity id="9" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="10">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="11" name="refeactorPerson"/>      
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="11" name="persService"/>      
       <multiplicity id="12" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <realization id="13">    
-    <bendpoint x="641" y="230"/>    
+    <bendpoint x="497" y="230"/>    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </realization>  
   <association id="14">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="15" name="persService"/>      
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="15" name="refeactorPerson"/>      
       <multiplicity id="16" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 

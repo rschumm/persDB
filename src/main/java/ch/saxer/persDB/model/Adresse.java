@@ -18,7 +18,7 @@ public class Adresse implements Serializable {
     @Id
     @Column(name = "ADR_PK")
     @GeneratedValue
-    int id;
+    private int id;
 
     @Transient
     @OneToMany(mappedBy = "adresse")

@@ -20,7 +20,7 @@ public class Item implements Serializable {
     @Id
     @Column(name = "ITEM_PK")
     @GeneratedValue
-    int id;
+    private int id;
 
     @Transient
     @ManyToMany

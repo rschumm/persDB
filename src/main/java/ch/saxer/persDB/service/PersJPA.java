@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.slf4j.Logger;
 
@@ -24,13 +25,18 @@ public class PersJPA {
 
     public List<Person> getAllPerson() {
         log.info("getAllPerson");
-        List<Person> personen = em.createQuery("SELECT x from Person x", Person.class).getResultList();
-        for (Person person : personen) {
-            System.out.println(person.getId() + " " + person.getName() + " " + person.getVorname() + " "
-                    + person.getAdresse().getId() + " " + person.getAdresse().getOrt() + " "
-                    + person.getAdresse().getPlz());
-        }
         return em.createQuery("SELECT x from Person x", Person.class).getResultList();
+
+    }
+
+    public Person getPerson(String name, String vorname) {
+
+        log.info("getPerson " + name + " " + vorname);
+        TypedQuery<Person> q = em.createQuery("SELECT x from Person x where x.name = :name and x.vorname = :vorname",
+                Person.class);
+        q.setParameter("name", name).setParameter("vorname", vorname);
+
+        return q.getSingleResult();
 
     }
 
@@ -45,11 +51,6 @@ public class PersJPA {
 
         return em.createQuery("SELECT x from Adresse x", Adresse.class).getResultList();
 
-    }
-
-    public Object testPersService() {
-        log.info("testPersService");
-        return "found";
     }
 
     public void addItem(Item item) {
