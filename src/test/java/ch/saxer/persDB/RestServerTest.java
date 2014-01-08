@@ -40,4 +40,21 @@ public class RestServerTest {
         assertEquals(erwAntwort, body);
 
     }
+
+    /*
+     * TODO does not work
+     */
+    @HttpTest(method = Method.POST, path = "persDB/rest/r/addItem", content = "{\"id\":333,\"nr\":\"333\"}")
+    public void addItem() {
+        System.out.println(response.getBody() + " " + response.getStatus());
+
+    }
+
+    /*
+     * TODO does not work
+     */
+    @HttpTest(method = Method.DELETE, path = "persDB/rest/r/deleteItem/1")
+    public void deleteItem() {
+        System.out.println(response.getBody() + " " + response.getStatus());
+    }
 }

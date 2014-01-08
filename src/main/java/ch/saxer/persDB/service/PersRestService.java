@@ -4,7 +4,10 @@ import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -69,13 +72,23 @@ public class PersRestService implements PersInterface {
 
     }
 
-    public void deleteItem(Item item) {
-        persService.deleteItem(item);
-    }
-
+    @POST
+    @Path("/addItem")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Override
     public void addItem(Item item) {
+        log.info("add Item");
 
         persService.addItem(item);
+    }
+
+    @DELETE
+    @Path("/deleteItem/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Override
+    public void deleteItemWithId(@PathParam("id")
+    int id) {
+        log.info("delete Item");
+        persService.deleteItemWithId(id);
     }
 }

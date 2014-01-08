@@ -16,7 +16,7 @@ public interface PersInterface {
 
     Person getPerson(String name, String vorname);
 
-    void deleteItem(Item item);
-
     void addItem(Item item);
+
+    void deleteItemWithId(int id);
 }

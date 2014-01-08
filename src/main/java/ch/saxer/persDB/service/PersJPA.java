@@ -69,10 +69,28 @@ public class PersJPA {
     }
 
     public void addItem(Item item) {
-        em.persist(item);
+        try {
+            em.persist(item);
+
+        } catch (Exception e) {
+            throw new WebApplicationException(HttpURLConnection.HTTP_NOT_FOUND);
+
+        }
+        throw new WebApplicationException(HttpURLConnection.HTTP_OK);
+
     }
 
-    public void deleteItem(Item item) {
-        em.remove(item);
+    public void deleteItemWithId(int id) {
+        try {
+            TypedQuery<Item> q = em.createQuery("SELECT x from Item, x where x.id = :id, Item.class", Item.class);
+            q.setParameter("id", id);
+            em.remove(q.getSingleResult());
+
+        } catch (Exception e) {
+            throw new WebApplicationException(HttpURLConnection.HTTP_NOT_FOUND);
+
+        }
+        throw new WebApplicationException(HttpURLConnection.HTTP_OK);
+
     }
 }

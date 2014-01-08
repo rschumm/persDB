@@ -45,12 +45,13 @@ public class PersService implements PersInterface {
     }
 
     @Override
-    public void deleteItem(Item item) {
-        persJPA.deleteItem(item);
+    public void addItem(Item item) {
+        persJPA.addItem(item);
     }
 
     @Override
-    public void addItem(Item item) {
-        persJPA.addItem(item);
+    public void deleteItemWithId(int id) {
+        persJPA.deleteItemWithId(id);
+
     }
 }
