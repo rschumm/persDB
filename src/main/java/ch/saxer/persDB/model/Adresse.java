@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 public class Adresse implements Serializable {
 
@@ -22,7 +24,7 @@ public class Adresse implements Serializable {
 
     @Transient
     @OneToMany(mappedBy = "adresse")
-    List<Person> personen;
+    private List<Person> personen;
 
     private String plz;
 
@@ -36,10 +38,12 @@ public class Adresse implements Serializable {
         this.id = id;
     }
 
+    @JsonIgnore
     public List<Person> getPersonen() {
         return personen;
     }
 
+    @JsonIgnore
     public void setPersonen(List<Person> personen) {
         this.personen = personen;
     }

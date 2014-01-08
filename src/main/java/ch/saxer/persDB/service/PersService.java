@@ -44,4 +44,13 @@ public class PersService implements PersInterface {
         return persJPA.getPerson(name, vorname);
     }
 
+    @Override
+    public void deleteItem(Item item) {
+        persJPA.deleteItem(item);
+    }
+
+    @Override
+    public void addItem(Item item) {
+        persJPA.addItem(item);
+    }
 }

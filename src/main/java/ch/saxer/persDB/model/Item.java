@@ -11,6 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class Item implements Serializable {
 
@@ -21,6 +25,7 @@ public class Item implements Serializable {
     @GeneratedValue
     private int id;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToMany
     @JoinTable(name = "PERSON_ITEM", joinColumns = {@JoinColumn(name = "ITEM_FK", referencedColumnName = "ITEM_PK")}, inverseJoinColumns = {@JoinColumn(name = "PERS_FK", referencedColumnName = "PERS_PK")})
     private Set<Person> personen;
@@ -35,10 +40,12 @@ public class Item implements Serializable {
         this.id = id;
     }
 
+    @JsonIgnore
     public Set<Person> getPersonen() {
         return personen;
     }
 
+    @JsonIgnore
     public void setPersonen(Set<Person> personen) {
         this.personen = personen;
     }
