@@ -169,7 +169,7 @@
 										<enable-resource>true</enable-resource>
 										<properties>
 											<driver-class>org.h2.Driver</driver-class>
-											<jndi-name>java:jboss/datasources/persDB</jndi-name>
+											<jndi-name>java:jboss/datasources/persDBds</jndi-name>
 											<enabled>true</enabled>
 											<connection-url>${db.path}</connection-url>
 											<user-name>root</user-name>

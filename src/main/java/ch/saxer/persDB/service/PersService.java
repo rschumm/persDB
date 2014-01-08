@@ -44,12 +44,4 @@ public class PersService implements PersInterface {
         return persJPA.getPerson(name, vorname);
     }
 
-    public PersJPA getPersJPA() {
-        return persJPA;
-    }
-
-    public void setPersJPA(PersJPA persJPA) {
-        this.persJPA = persJPA;
-    }
-
 }
